@@ -9,6 +9,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
 )
 
+//go:embed all:dist
 var distFS embed.FS
 
 func Register(app *fiber.App) error {

@@ -94,7 +94,7 @@ func main() {
 	}()
 
 	log.Printf("✓ Gemini CLI App Ready → %s", serverURL)
-	log.Printf("✓ Made by lessy")
+	log.Printf("✓ Made by lessy'")
 	if err := app.Listen(serverAddr); err != nil {
 		log.Fatalf("could not start server: %v", err)
 	}
