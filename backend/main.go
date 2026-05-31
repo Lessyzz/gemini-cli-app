@@ -16,7 +16,6 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
 const serverAddr = ":8080"
@@ -39,15 +38,14 @@ func main() {
 	}()
 
 	app := fiber.New(fiber.Config{
-		AppName:		"Gemini CLI App",
-		DisableStartupMessage:	true,
+		AppName:               "Gemini CLI App",
+		DisableStartupMessage: true,
 	})
 
-	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:	"*",
-		AllowHeaders:	"Origin, Content-Type, Accept",
-		AllowMethods:	"GET,POST,DELETE",
+		AllowOrigins: "*",
+		AllowHeaders: "Origin, Content-Type, Accept",
+		AllowMethods: "GET,POST,DELETE",
 	}))
 
 	h := handlers.New(workDir)
@@ -95,7 +93,8 @@ func main() {
 		os.Exit(0)
 	}()
 
-	log.Printf("✓ Server ready → %s", serverURL)
+	log.Printf("✓ Gemini CLI App Ready → %s", serverURL)
+	log.Printf("✓ Made by lessy")
 	if err := app.Listen(serverAddr); err != nil {
 		log.Fatalf("could not start server: %v", err)
 	}
